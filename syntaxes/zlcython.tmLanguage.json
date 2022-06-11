@@ -1,0 +1,145 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "zlcython",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#brace_blocks"
+		},
+		{
+			"include": "#paren_blocks"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#method"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.zlcython",
+					"match": "\\b(遍历|导入图形化界面|在|定义|类|继承|如果|返回|退出循环|跳过|触发异常|导入|从|到|结束|当|等于|不等于|大于|小于|大于等于|小于等于|与|或|非|和|缩进|所有|如果循环|否则|否则如果|占位符)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.zlcython",
+			"begin": "“|‘|”|’",
+			"end": "“|‘|”|’",
+			"patterns": [
+				{
+					"name": "constant.character.escape.zlcython",
+					"match": "\\\\."
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.zlcython",
+					"match": "\\b([0-9]+)\\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.zlcython",
+					"match": "#.*$"
+				}
+			]
+		},
+		"brace_blocks": {
+			"patterns": [
+				{
+					"name": "meta.brace.block.zlcython",
+					"begin": "\\{|「|『",
+					"end": "\\}|」|』",
+					"patterns": [
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#comments"
+						}
+					]
+				}
+			]
+		},
+		"paren_blocks": {
+			"patterns": [
+				{
+					"name": "meta.paren.block.zlcython",
+					"begin": "（",
+					"end": "）",
+					"patterns": [
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#comments"
+						}
+					]
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.language.zlcython",
+					"match": "真|假"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.zlcython",
+					"match": "\\b(等于|不等于|大于|小于|大于等于|小于等于|与|或|非)\\b"
+				},
+				{
+					"name": "keyword.operator.assignment.zlcython",
+					"match": "\\b(次方|加|减|乘|除|取余)\\b"
+				}
+			]
+		},
+		"method": {
+			"patterns": [
+				{
+					"name": "entity.name.function.zlcython",
+					"match": "\\b(输出|输入|转整数|图形化标题|转浮点数|转字符串|转布尔|转列表|转元组|转字典|转集合|转比特|转字节|请求网页|获取内容|随机数|等待|长度|请求网页|css选择器|获取网页内容|随机数|图形化窗口大小|显示按钮|当窗口关闭时|显示窗口|图形化窗口位置)\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.zlcy"
+}

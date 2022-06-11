@@ -1,0 +1,68 @@
+{
+    "name": "zlcython",
+    "displayName": "zlcython",
+    "description": "",
+    "version": "0.0.2",
+    "icon": "zlcython.png",
+    "publisher": "zlcython",
+    "engines": {
+        "vscode": "^0.10.5"
+    },
+    "activationEvents": [
+		"onCommand:extension.sayHello",
+        "onCommand:zlcython.gen.code"
+	],
+    "categories": [
+        "Programming Languages"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "zlcython",
+                "aliases": [
+                    "zlcython",
+                    "zlcython"
+                ],
+                "extensions": [
+                    ".zlcy"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "zlcython",
+                "scopeName": "source.zlcy",
+                "path": "./syntaxes/zlcython.tmLanguage.json"
+            }
+        ],
+        "commands": [
+			{
+				"command": "extension.sayHello",
+				"title": "Hello World"
+			},
+            {
+                "command": "zlcython.gen.code",
+                "title": "generate code"
+            }
+		],
+        "menus": {
+			"editor/title": [{
+                "when": "resourceLangId == zlcython",
+				"command": "zlcython.gen.code",
+				"group": "navigation"
+			}],
+            "editor/context": [
+				{
+					"when": "editorFocus",
+					"command": "zlcython.gen.code",
+					"group": "navigation"
+				}
+			]
+		}
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.42"
+    }
+}
