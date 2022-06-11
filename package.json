@@ -2,7 +2,8 @@
     "name": "zlcython",
     "displayName": "zlcython",
     "description": "",
-    "version": "0.0.2",
+    "version": "0.0.3",
+    "repository": "https://github.com/zlc1003/zlcython-vscode-extension",
     "icon": "zlcython.png",
     "publisher": "zlcython",
     "engines": {
