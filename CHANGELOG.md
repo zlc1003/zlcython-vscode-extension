@@ -1,9 +1,25 @@
 # Change Log
 
-All notable changes to the "zlcython" extension will be documented in this file.
+## 0.1
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- Change
 
-## [Unreleased]
+## 0.2
 
-- Initial release
+- Change
+
+## 0.3
+
+- Change
+
+## 0.4
+
+- Add icon
+
+## 0.5
+
+- Add license
+
+## 0.6
+
+- Update Change Log
