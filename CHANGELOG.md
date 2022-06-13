@@ -23,3 +23,11 @@
 ## 0.6
 
 - Update Change Log
+
+## 1.0
+
+- add generate code
+
+## 1.1
+
+- when generate code success, show the code in the editor

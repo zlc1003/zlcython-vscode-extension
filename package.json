@@ -2,7 +2,7 @@
     "name": "zlcython",
     "displayName": "zlcython",
     "description": "",
-    "version": "0.0.6",
+    "version": "1.1.0",
     "repository": "https://github.com/zlc1003/zlcython-vscode-extension",
     "icon": "zlcython.png",
     "publisher": "zlcython",
@@ -10,9 +10,9 @@
         "vscode": "^0.10.5"
     },
     "activationEvents": [
-		"onCommand:extension.sayHello",
+        "onCommand:extension.sayHello",
         "onCommand:zlcython.gen.code"
-	],
+    ],
     "categories": [
         "Programming Languages"
     ],
@@ -43,29 +43,31 @@
             }
         ],
         "commands": [
-			{
-				"command": "extension.sayHello",
-				"title": "Hello World"
-			},
+            {
+                "command": "extension.sayHello",
+                "title": "Hello World"
+            },
             {
                 "command": "zlcython.gen.code",
                 "title": "generate code"
             }
-		],
+        ],
         "menus": {
-			"editor/title": [{
-                "when": "resourceLangId == zlcython",
-				"command": "zlcython.gen.code",
-				"group": "navigation"
-			}],
+            "editor/title": [
+                {
+                    "when": "resourceLangId == zlcython",
+                    "command": "zlcython.gen.code",
+                    "group": "navigation"
+                }
+            ],
             "editor/context": [
-				{
-					"when": "editorFocus",
-					"command": "zlcython.gen.code",
-					"group": "navigation"
-				}
-			]
-		}
+                {
+                    "when": "editorFocus",
+                    "command": "zlcython.gen.code",
+                    "group": "navigation"
+                }
+            ]
+        }
     },
     "devDependencies": {
         "@types/node": "^17.0.42"
