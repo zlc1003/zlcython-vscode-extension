@@ -31,3 +31,11 @@
 ## 1.1
 
 - when generate code success, show the code in the editor
+
+## 1.2
+
+- icon ++
+
+## 1.3
+
+- add snippets

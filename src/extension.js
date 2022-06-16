@@ -53,17 +53,17 @@ exports.activate = async function (context) {
                                             vscode.window.showInformationMessage('zlcython installed successfully!');
                                         }
                                         else {
-                                            vscode.window.showInformationMessage('zlcython installed failed!');
+                                            vscode.window.showErrorMessage('zlcython installed failed!');
                                         }
                                     });
                                 }
                                 else {
-                                    vscode.window.showInformationMessage('You did not install pip');
+                                    vscode.window.showInformationMessage('You did not install pip!');
                                 }
                             });
                         }
                     });
-                    vscode.window.showInformationMessage('Code generation failed!\n\nCheck your code.');
+                    vscode.window.showErrorMessage('Code generation failed!\n\nCheck your code.');
                 }
             });
         }

@@ -2,7 +2,7 @@
     "name": "zlcython",
     "displayName": "zlcython",
     "description": "",
-    "version": "1.1.0",
+    "version": "1.3.0",
     "repository": "https://github.com/zlc1003/zlcython-vscode-extension",
     "icon": "zlcython.png",
     "publisher": "zlcython",
@@ -35,6 +35,12 @@
                 "configuration": "./language-configuration.json"
             }
         ],
+        "snippets": [
+            {
+                "language": "zlcython",
+                "path": "./snippets/snippets.json"
+            }
+        ],
         "grammars": [
             {
                 "language": "zlcython",
@@ -49,7 +55,11 @@
             },
             {
                 "command": "zlcython.gen.code",
-                "title": "generate code"
+                "title": "generate code",
+                "icon": {
+                    "light": "zlcython-light.gif",
+                    "dark": "zlcython-dark.gif"
+                }
             }
         ],
         "menus": {
