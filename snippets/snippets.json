@@ -52,5 +52,163 @@
             "\t$0"
         ],
         "description": "否则"
+    },
+    "加":{
+        "prefix": [
+            "加",
+            "+"
+        ],
+        "body": [
+            "加"
+        ],
+        "description": "加"
+    },
+    "减":{
+        "prefix": [
+            "减",
+            "-"
+        ],
+        "body": [
+            "减"
+        ],
+        "description": "减"
+    },
+    "乘":{
+        "prefix": [
+            "乘",
+            "*"
+        ],
+        "body": [
+            "乘"
+        ],
+        "description": "乘"
+    },
+    "除":{
+        "prefix": [
+            "除",
+            "/"
+        ],
+        "body": [
+            "除"
+        ],
+        "description": "除"
+    },
+    "取余":{
+        "prefix": [
+            "取余",
+            "%"
+        ],
+        "body": [
+            "取余"
+        ],
+        "description": "取余"
+    },
+    "取整":{
+        "prefix": [
+            "取整",
+            "//"
+        ],
+        "body": [
+            "取整"
+        ],
+        "description": "取整"
+    },
+    "等待":{
+        "prefix": [
+            "等待",
+            "sleep"
+        ],
+        "body": [
+            "等待（$1）"
+        ],
+        "description": "等待"
+    },
+    "导入":
+    {
+        "prefix": [
+            "导入",
+            "import"
+        ],
+        "body": [
+            "导入 $1"
+        ],
+        "description": "导入"
+    },
+    "返回":
+    {
+        "prefix": [
+            "返回",
+            "return"
+        ],
+        "body": [
+            "返回 $1"
+        ],
+        "description": "返回"
+    },
+    "长度":
+    {
+        "prefix": [
+            "长度",
+            "len"
+        ],
+        "body": [
+            "长度（$1）"
+        ],
+        "description": "长度"
+    },
+    "真":
+    {
+        "prefix": [
+            "真",
+            "True"
+        ],
+        "body": [
+            "真"
+        ],
+        "description": "真"
+    },
+    "假":
+    {
+        "prefix": [
+            "假",
+            "False"
+        ],
+        "body": [
+            "假"
+        ],
+        "description": "假"
+    },
+    "无":
+    {
+        "prefix": [
+            "无",
+            "None"
+        ],
+        "body": [
+            "无"
+        ],
+        "description": "无"
+    },
+    "转字符串":
+    {
+        "prefix": [
+            "转字符串",
+            "str"
+        ],
+        "body": [
+            "转字符串（$1）"
+        ],
+        "description": "转字符串"
+    },
+    "转整数":
+    {
+        "prefix": [
+            "转整数",
+            "int"
+        ],
+        "body": [
+            "转整数（$1）"
+        ],
+        "description": "转整数"
     }
 }
