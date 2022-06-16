@@ -39,3 +39,7 @@
 ## 1.3
 
 - add snippets
+
+## 1.4
+
+- add install opencc

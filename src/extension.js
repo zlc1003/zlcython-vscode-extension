@@ -56,6 +56,15 @@ exports.activate = async function (context) {
                                             vscode.window.showErrorMessage('zlcython installed failed!');
                                         }
                                     });
+                                    const c3 = spawn("python3", ["-m", "pip", "install", "opencc-python-reimplemented"]);
+                                    c3.on("close", code => {
+                                        if (code == 0) {
+                                            vscode.window.showInformationMessage('poencc installed successfully!');
+                                        }
+                                        else {
+                                            vscode.window.showErrorMessage('opencc installed failed!');
+                                        }
+                                    });
                                 }
                                 else {
                                     vscode.window.showInformationMessage('You did not install pip!');
