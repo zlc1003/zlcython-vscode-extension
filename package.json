@@ -2,7 +2,7 @@
     "name": "zlcython",
     "displayName": "zlcython",
     "description": "",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "repository": "https://github.com/zlc1003/zlcython-vscode-extension",
     "icon": "zlcython.png",
     "publisher": "zlcython",
@@ -11,7 +11,8 @@
     },
     "activationEvents": [
         "onCommand:extension.sayHello",
-        "onCommand:zlcython.gen.code"
+        "onCommand:zlcython.gen.code",
+        "onCommand:zlcython.gen.exe"
     ],
     "categories": [
         "Programming Languages"
@@ -54,6 +55,14 @@
                 "title": "Hello World"
             },
             {
+                "command": "zlcython.gen.exe",
+                "title": "convert to exe",
+                "icon": {
+                    "light": "zlcython-exe.gif",
+                    "dark": "zlcython-exe.gif"
+                }
+            },
+            {
                 "command": "zlcython.gen.code",
                 "title": "generate code",
                 "icon": {
@@ -67,6 +76,11 @@
                 {
                     "when": "resourceLangId == zlcython",
                     "command": "zlcython.gen.code",
+                    "group": "navigation"
+                },
+                {
+                    "when": "resourceLangId == python",
+                    "command": "zlcython.gen.exe",
                     "group": "navigation"
                 }
             ],

@@ -47,3 +47,7 @@
 ## 1.5
 
 - more snippets
+
+## 1.6
+
+- convert to exe
