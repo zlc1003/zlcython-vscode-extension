@@ -10,7 +10,7 @@ function read_file(file_path) {
  * 插件被激活时触发，所有代码总入口
  * @param {*} context 插件上下文
  */
-exports.activate = async function (context) {
+exports.activate = async function (context: any) {
     console.log('扩展已被激活');
     const python = spawn("python3", ["-V"]);
     python.on("close", code => { exitcode = code });
@@ -26,26 +26,19 @@ exports.activate = async function (context) {
         if (havepython) {
             vscode.window.showInformationMessage("开始生成");
             var codepath = vscode.window.activeTextEditor.document.fileName;
-            const zlcythongenexe = spawn("python3", ["-m", "zlcython.install", "convert", codepath]);
-            zlcythongenexe.on("close", code => {
-                if (code == 0) {
+            // const zlcythongenexe = spawn("python3", ["-m", "zlcython.install", "convert", codepath]);
+            let a=codepath.split("/")
+            a.pop()
+            exec("cd "+a.join("/")+";python3 -m zlcython.install convert " + codepath, (err, stdout, stderr) => {
+                if (err) {
+                    console.log(err);
+                    console.log(stdout);
+                    vscode.window.showInformationMessage("生成失败");
+                } else {
                     vscode.window.showInformationMessage("生成成功");
                 }
-                else {
-                    const zlcythongenexe = spawn("python3", ["-m", "zlcython.install", "install"]);
-                    zlcythongenexe.on("close", code => {
-                        if (code == 0) {
-                            vscode.window.showInformationMessage("安装exe编译器成功");
-                        }
-                        else {
-                            vscode.window.showInformationMessage("安装exe编译器失败");
-                            // throw new Error("安装exe编译器失败");
-                        }
-                    }
-                    );
-                }
-            }
-            );
+                console.log(stdout);
+            })
         }
         else {
             vscode.window.showInformationMessage("请安装python3");

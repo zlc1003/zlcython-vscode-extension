@@ -65,23 +65,19 @@ exports.activate = function (context) {
                 if (havepython) {
                     vscode.window.showInformationMessage("开始生成");
                     var codepath = vscode.window.activeTextEditor.document.fileName;
-                    var zlcythongenexe = spawn("python3", ["-m", "zlcython.install", "convert", codepath]);
-                    zlcythongenexe.on("close", function (code) {
-                        if (code == 0) {
-                            vscode.window.showInformationMessage("生成成功");
+                    // const zlcythongenexe = spawn("python3", ["-m", "zlcython.install", "convert", codepath]);
+                    var a = codepath.split("/");
+                    a.pop();
+                    exec("cd " + a.join("/") + ";python3 -m zlcython.install convert " + codepath, function (err, stdout, stderr) {
+                        if (err) {
+                            console.log(err);
+                            console.log(stdout);
+                            vscode.window.showInformationMessage("生成失败");
                         }
                         else {
-                            var zlcythongenexe_1 = spawn("python3", ["-m", "zlcython.install", "install"]);
-                            zlcythongenexe_1.on("close", function (code) {
-                                if (code == 0) {
-                                    vscode.window.showInformationMessage("安装exe编译器成功");
-                                }
-                                else {
-                                    vscode.window.showInformationMessage("安装exe编译器失败");
-                                    // throw new Error("安装exe编译器失败");
-                                }
-                            });
+                            vscode.window.showInformationMessage("生成成功");
                         }
+                        console.log(stdout);
                     });
                 }
                 else {

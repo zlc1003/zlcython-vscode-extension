@@ -51,3 +51,7 @@
 ## 1.6
 
 - convert to exe
+
+## 1.6.1
+
+- fix convert to exe
