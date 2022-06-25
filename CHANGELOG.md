@@ -55,3 +55,7 @@
 ## 1.6.1
 
 - fix convert to exe
+
+## 1.6.2
+
+- fix convert to exe for windows

@@ -27,15 +27,35 @@ exports.activate = async function (context: any) {
             vscode.window.showInformationMessage("开始生成");
             var codepath = vscode.window.activeTextEditor.document.fileName;
             // const zlcythongenexe = spawn("python3", ["-m", "zlcython.install", "convert", codepath]);
-            let a=codepath.split("/")
+            let iswin = false
+            let a = codepath.split("/")
+            if (a.length == 1) {
+                iswin = true
+                a = codepath.split("\\")
+            }
             a.pop()
-            exec("cd "+a.join("/")+";python3 -m zlcython.install convert " + codepath, (err, stdout, stderr) => {
+            exec("cd \"" + a.join("/") + "\" && python3 -m zlcython.install convert \"" + codepath + "\"", (err, stdout, stderr) => {
                 if (err) {
                     console.log(err);
                     console.log(stdout);
                     vscode.window.showInformationMessage("生成失败");
+                    vscode.window.showInformationMessage("请尝试：");
+                    vscode.window.showInformationMessage("python3 -m zlcython.install install")
                 } else {
-                    vscode.window.showInformationMessage("生成成功");
+                    if (iswin) {
+                        exec("cd \"" + a.join("/") + "\" && rd /S /Q build dist", (err, stdout, stderr) => {
+                            if (err) {
+                                console.log(err);
+                                console.log(stdout);
+                                vscode.window.showInformationMessage("生成成功");
+                            } else {
+                                vscode.window.showInformationMessage("生成成功");
+                            }
+                        })
+                    }
+                    else {
+                        vscode.window.showInformationMessage("生成成功");
+                    }
                 }
                 console.log(stdout);
             })
@@ -65,7 +85,7 @@ exports.activate = async function (context: any) {
                 else {
                     const c12 = spawn("python3", ["-m", "zlcython"]);
                     c12.on("close", code => {
-                        if (code == 0) {}
+                        if (code == 0) { }
                         else {
                             vscode.window.showInformationMessage('正在安装zlcython');
                             const c11 = spawn("python3", ["-m", "pip"]);

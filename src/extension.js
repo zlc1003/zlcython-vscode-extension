@@ -66,16 +66,37 @@ exports.activate = function (context) {
                     vscode.window.showInformationMessage("开始生成");
                     var codepath = vscode.window.activeTextEditor.document.fileName;
                     // const zlcythongenexe = spawn("python3", ["-m", "zlcython.install", "convert", codepath]);
-                    var a = codepath.split("/");
-                    a.pop();
-                    exec("cd " + a.join("/") + ";python3 -m zlcython.install convert " + codepath, function (err, stdout, stderr) {
+                    var iswin_1 = false;
+                    var a_1 = codepath.split("/");
+                    if (a_1.length == 1) {
+                        iswin_1 = true;
+                        a_1 = codepath.split("\\");
+                    }
+                    a_1.pop();
+                    exec("cd \"" + a_1.join("/") + "\" && python3 -m zlcython.install convert \"" + codepath + "\"", function (err, stdout, stderr) {
                         if (err) {
                             console.log(err);
                             console.log(stdout);
                             vscode.window.showInformationMessage("生成失败");
+                            vscode.window.showInformationMessage("请尝试：");
+                            vscode.window.showInformationMessage("python3 -m zlcython.install install");
                         }
                         else {
-                            vscode.window.showInformationMessage("生成成功");
+                            if (iswin_1) {
+                                exec("cd \"" + a_1.join("/") + "\" && rd /S /Q build dist", function (err, stdout, stderr) {
+                                    if (err) {
+                                        console.log(err);
+                                        console.log(stdout);
+                                        vscode.window.showInformationMessage("生成成功");
+                                    }
+                                    else {
+                                        vscode.window.showInformationMessage("生成成功");
+                                    }
+                                });
+                            }
+                            else {
+                                vscode.window.showInformationMessage("生成成功");
+                            }
                         }
                         console.log(stdout);
                     });
